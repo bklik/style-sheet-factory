@@ -1,5 +1,18 @@
-factory('$styleSheet', function(){
+/***********************************************************************
+ * $styleSheet Factory
+ * Author: Brenton Klik
+ * 
+ * Prerequisites: AngularJS
+ * 
+ * Description:
+ * This factory provides a series of methods to make management of CSS
+ * styles in javascript easier. Directives may take advantage of these
+ * to include thier CSS as part of their code, rather than an external
+ * style sheet.
+/**********************************************************************/
+.factory('$styleSheet', function(){
     return {
+        // Finds and returns the browsers's main style sheet.
         getStyleSheet: function() {
             for(var i=0; i<document.styleSheets.length; i++) {
                 if(
@@ -10,9 +23,12 @@ factory('$styleSheet', function(){
                     return document.styleSheets[i];
                 }
             }
-
+    
             return null;
         },
+    
+        // Gets the prefix related to the user's browser type. Used in
+        // CSS for non-standardized properties.
         getPrefix: function() {
             var prefixes = ['Webkit', 'Moz', 'ms', 'O', 'Khtml'];
             for(var i=0; i<prefixes.length; i++) {
@@ -22,6 +38,8 @@ factory('$styleSheet', function(){
             }
             return '';
         },
+    
+        // Returns whether a rule of that selector exists in the stylesheet.
         hasCSSRule: function(sheet, selector) {
             var rules = sheet.rules || sheet.cssRules;
             for(var i=0; i<rules.length; i++) {
@@ -29,9 +47,11 @@ factory('$styleSheet', function(){
                     return true;
                 }
             }
-
+    
             return false;
         },
+    
+        // If no selector of that rule exists, adds the new rule to the stylesheet.
         addCSSRule: function(sheet, selector, rules, index) {
             if(!this.hasCSSRule(sheet, selector)) {
                 if(typeof sheet.insertRule === 'function') {
@@ -42,6 +62,8 @@ factory('$styleSheet', function(){
                 }
             }
         },
+    
+        // Removes a rule of the existing selector from the stylesheet.
         removeCSSRule: function(sheet, selector) {
             var rules = sheet.rules || sheet.cssRules;
             for(var i=0; i<rules.length; i++) {
@@ -51,6 +73,8 @@ factory('$styleSheet', function(){
                 }
             }
         },
+    
+        // Adds a keyframes animation to the stylesheet with te appropriate prefixing.
         addCSSKeyframes: function(sheet, name, rules, index) {
             if(this.getPrefix() != '') {
                 this.addCSSRule(sheet, '@-'+this.getPrefix()+'-keyframes '+name, rules, index);
