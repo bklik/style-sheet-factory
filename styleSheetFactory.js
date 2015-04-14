@@ -4,6 +4,10 @@
  * 
  * Prerequisites: AngularJS
  * 
+ * Example Use:
+ * angular.module('sampleApp', []).factory('$styleSheet', func…
+ * .directive('example', ['$styleSheet', function($styleSheet)…
+ * 
  * Description:
  * This factory provides a series of methods to make management of CSS
  * styles in javascript easier. Directives may take advantage of these
