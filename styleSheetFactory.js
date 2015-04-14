@@ -14,6 +14,8 @@
  * to include thier CSS as part of their code, rather than an external
  * style sheet.
 /**********************************************************************/
+angular.module('styleSheet', [])
+
 .factory('$styleSheet', function(){
     return {
         // Finds and returns the browsers's main style sheet.
