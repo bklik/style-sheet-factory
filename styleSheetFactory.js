@@ -1,12 +1,12 @@
 /***********************************************************************
- * $styleSheet Factory
+ * styleSheetFactory Factory
  * Author: Brenton Klik
  * 
  * Prerequisites: AngularJS
  * 
  * Example Use:
- * angular.module('sampleApp', []).factory('$styleSheet', func…
- * .directive('example', ['$styleSheet', function($styleSheet)…
+ * angular.module('sampleApp', []).factory('styleSheetFactory', func…
+ * .directive('example', ['styleSheetFactory', function(styleSheetFactory)…
  * 
  * Description:
  * This factory provides a series of methods to make management of CSS
@@ -16,7 +16,7 @@
 /**********************************************************************/
 angular.module('styleSheetFactory', [])
 
-.factory('$styleSheet', function(){
+.factory('styleSheetFactory', function(){
     return {
         // Finds and returns the browsers's main style sheet.
         getStyleSheet: function() {
@@ -89,4 +89,4 @@ angular.module('styleSheetFactory', [])
             }
         }
     }
-})
+});
