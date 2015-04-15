@@ -85,7 +85,7 @@ angular.module('styleSheet', [])
             if(this.getPrefix() != '') {
                 this.addCSSRule(sheet, '@-'+this.getPrefix()+'-keyframes '+name, rules, index);
             } else {
-                this.addCSSRule(sheet, '@-keyframes '+name, rules, index);
+                this.addCSSRule(sheet, '@keyframes '+name, rules, index);
             }
         }
     }
