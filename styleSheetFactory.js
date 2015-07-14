@@ -75,6 +75,7 @@ angular.module('styleSheetFactory', [])
             for(var i=0; i<rules.length; i++) {
                 if(rules[i].selectorText == selector) {
                     sheet.deleteRule(i);
+                    sheet.removeRule(i);
                     break;
                 }
             }
