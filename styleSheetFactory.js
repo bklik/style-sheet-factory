@@ -65,7 +65,7 @@ angular.module('style-sheet-factory', [])
                     var newSelector = sheet.cssRules[index].cssText.split(' {')[0];
 
                     if(selector !== newSelector) {
-                        console.warn(
+                        $log.warn(
                             'The browser has changed the selector of the rule you added to the StyleSheet.' +
                             '\nOld: '+selector+
                             '\nNew: '+newSelector+
