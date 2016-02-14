@@ -98,7 +98,7 @@ angular.module('style-sheet-factory', [])
         },
 
         // Returns whether a keyframe of that name exists in the stylesheet.
-        hasCSSKeyframe: function(sheet, name) {
+        hasCSSKeyframes: function(sheet, name) {
             var rules = sheet.cssRules;
             var len = rules.length;
 
@@ -145,7 +145,7 @@ angular.module('style-sheet-factory', [])
         },
 
         // Removes a keyframe of the given name from the stylesheet.
-        removeCSSKeyframe: function(sheet, name) {
+        removeCSSKeyframes: function(sheet, name) {
             var rules = sheet.cssRules;
             var len = rules.length;
 
@@ -161,7 +161,7 @@ angular.module('style-sheet-factory', [])
     
         // Adds a keyframes animation to the stylesheet with te appropriate prefixing.
         addCSSKeyframes: function(sheet, name, rules, index) {
-            if(!this.hasCSSKeyframe(sheet, name)) {
+            if(!this.hasCSSKeyframes(sheet, name)) {
                 return _insertCSSRule(sheet, '@'+this.getPrefix()+'keyframes '+name, rules, index);
             }
         }
